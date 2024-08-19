@@ -1,59 +1,24 @@
-'use client';
-
-import Image from "next/image";
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import React from 'react';
+import Navbar from "./components/Navbar";
+import HeroSection from './components/HeroSection';
+import Image from 'next/image';
+import AboutSection from './components/AboutSection';
+import ExploreSection from './components/ExploreSection';
+import Footer from './components/Footer';
 
 export default function Home() {
-  const [routeLink, setRouteLink] = useState('');
 
-  useEffect(() => {
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-      setRouteLink('https://apps.apple.com/jo/app/kooler-%D9%83%D9%88%D9%84%D8%B1/id6526497412');
-    } else if (/android/i.test(userAgent)) {
-      setRouteLink('https://play.google.com/store/apps/details?id=com.kooler.water_user&pcampaignid=web_share');
-    } else {
-      setRouteLink('https://store-page-two.vercel.app/');
-    }
-  }, []);
   return (
-    <main className="">
-      <nav class="shadow">
-        <div class="flex flex-wrap justify-around lg:justify-between items-center mx-auto max-w-screen-xl p-4">
-          <a href="https://www.kooler-jo.com" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <Image src="/blue.png" width={32} height={32} alt="Kooler Jo Logo" />
-          </a>
-          <div class="flex items-center space-x-6 rtl:space-x-reverse">
-            <a href="tel:962775818618" class="text-md  text-[#0C5BA9]  hover:underline hidden sm:block">+962 77 5818 618</a>
-
-            <a href="https://forms.gle/xrQaRZuycrwZs4To8" target="_blank" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 ">
-              Register Now
-            </a>
-          </div>
-        </div>
-      </nav>
-      
+    <main className="relative">
+      <Navbar />
+      <HeroSection />
+      <AboutSection />
+      <ExploreSection />
 
 
-      <section class="">
-        <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
-          <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">Kooler Jo - Your Water Delivery Experts!</h1>
-          <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48">Connecting you with the best water vendors in town and more. Order water bottles and more with ease. Refreshment is just a tap away!</p>
-          <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
-            <a href="https://forms.gle/xrQaRZuycrwZs4To8" target="_blank" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 ">
-              Continue as vendor
-              <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-              </svg>
-            </a>
-            <a href={routeLink} target="_blank" class="py-3 px-5 sm:ms-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100">
-              Download App
-            </a>
-          </div>
-        </div>
-      </section>
+
+      <Footer />
+
 
 
     </main>
